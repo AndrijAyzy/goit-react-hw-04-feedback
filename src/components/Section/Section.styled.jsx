@@ -9,6 +9,7 @@ export const SectionBox = styled.section`
 `;
 
 export const Title = styled.h1`
-  font-size: 30px;
+  font-size: 25px;
+  color: #6600ff;
  
 `;
