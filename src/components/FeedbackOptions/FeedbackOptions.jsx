@@ -1,24 +1,27 @@
-import React from 'react';
-import { List, BtnList, ListItem } from './FeedbackOptions.styled';
-import { HiHeart } from 'react-icons/hi2';
+import { ButtonList, ListItem, ButtonOption } from './FeedbackOptions.styled';
+import PropTypes from 'prop-types';
 
-const Feedback = ({ options, onLeaveFeedback }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  function capitalizeFirstLetter(string) {
+    return string[0].toUpperCase() + string.slice(1);
+  }
   return (
-    <List>
-      {options.map((option, index) => (
-        <ListItem key={index} option={option}>
-          <BtnList
-            option={option}
-            type="button"
-            onClick={() => onLeaveFeedback(option)}
-          >
-            <HiHeart />
-            {option}
-          </BtnList>
+    <ButtonList>
+      {options.map(option => (
+        <ListItem key={option}>
+          {' '}
+          <ButtonOption type="button" onClick={() => onLeaveFeedback(option)}>
+            {capitalizeFirstLetter(option)}
+          </ButtonOption>
         </ListItem>
       ))}
-    </List>
+    </ButtonList>
   );
 };
 
-export default Feedback;
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+}
+
+export default FeedbackOptions;
