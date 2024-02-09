@@ -1,13 +1,9 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export const Container = styled.div`
-  text-align: center;
-`;
-
-export const Title = styled.h2`
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 20px;
-  color: #0800ff;
+export const ListItem = styled.li`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: ${p => p.theme.colors.statistics};
 `;

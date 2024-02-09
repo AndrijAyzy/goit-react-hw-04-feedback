@@ -1,63 +1,45 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export const Container = styled.div`
-  /* padding: 50px; */
-  padding: 100px;
-  background: linear-gradient(to top, black, 20%, cyan);
-  text-align: center;
+const GetBorderColor = props => {
+  switch (props.option) {
+    case 'good':
+      return props.theme.colors.good;
+    case 'neutral':
+      return props.theme.colors.neutral;
+    case 'bad':
+      return props.theme.colors.bad;
+    default:
+      return '#201e20';
+  }
+};
+
+export const List = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
 
-export const Title = styled.h2`
-margin: 30px;
-background: linear-gradient(to right, red, orange, green, blue, violet);
-background-size: 400% 400%;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
--webkit-animation: rainbow 20s ease infinite;
-animation: rainbow 20s ease infinite;
-font-size: 25px;
-line-height: 25px;
-}
-
-@-webkit-keyframes rainbow {
-0% { background-position: 0% 50% }
-50% { background-position: 100% 50% }
-100% { background-position: 0% 50% }
-}
-
-@keyframes rainbow {
-0% { background-position: 0% 50% }
-50% { background-position: 100% 50% }
-100% { background-position: 0% 50% }
-`;
-
-export const Button = styled.button`
+export const BtnList = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 40px;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.25s linear 0s;
-  &:hover,
-  &:focus {
-    color: #000000;
-    background: #efff9e;
-    tansition: all .3s linear;
-    -webkit-transition: all .3s linear;
-    -moz-transition: all .3s linear; 
-    border: 1px solid #f27900; 
-    background-color: ##0800ff;
-    transform: scale(1.1);
-  }
+  font-weight: 500;
+  font-size: 18px;
+  border: transparent;
+  border-radius: 2px;
+  background-color: ${p => p.theme.colors.button};
+  box-shadow: 3px 3px 3px ${GetBorderColor};
 `;
 
-export const List = styled.li`
-  margin: 0 10px;
-  display: inline-flex;
-  justify-content: center;
-  text-align: center;
-  list-style: none;
+export const ListItem = styled.li`
+  :hover,
+  focus {
+    background-color: ${GetBorderColor};
+    box-shadow: 3px 3px 3px ${p => p.theme.colors.button};
+  }
 `;

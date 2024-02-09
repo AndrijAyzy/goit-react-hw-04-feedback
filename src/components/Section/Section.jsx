@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SectionFeedback, SectionTitle } from './Section.styled';
 
 const Section = ({ title, children }) => {
   return (
-    <section>
-      <h2>{title}</h2>
+    <SectionFeedback>
+      <SectionTitle>{title}</SectionTitle>
       {children}
-    </section>
+    </SectionFeedback>
   );
 };
 
 export default Section;
-
-Section.protoTypes = {
-  title: PropTypes.string.isRequired,
-};
